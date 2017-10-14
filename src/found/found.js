@@ -9,13 +9,33 @@ export default class Found extends React.Component {
 	};
 	render() {
 		//var {params} = this.props.navigation.state;
-    var {navigate} = this.props.navigation;
+		var payments = [];
+		var arraynum = [];
+		var {navigate} = this.props.navigation;
+		var numberPpl = [2,3];
+		for (let i=0;i<numberPpl.length;i++){
+			arraynum.push(
+				<View>
+					<View>
+						<Button
+							raised
+										textStyle={{textAlign: 'center'}}
+										title={<Text>{numberPpl[i]} out of 4 signed in</Text>}
+											onPress = {
+												() => navigate("Group", {alloc:numberPpl[i], max:"4"})
+											}
+						/>
+					</View>
+				</View>
+			)
+}
 		var initialArr = [["blue","text1"],["red","text2"],["df","s"]];
 		return (
 			<View>
 			<Text>Halloween Horror Nights Ticket </Text>
 			<Text> 2017</Text>
-			 {initialArr.map((prop, key) => {
+			{arraynum}
+			 {/*{initialArr.map((prop, key) => {
          return (
            <Button style={{borderColor: prop[0]}}  key={key}raised
              		textStyle={{textAlign: 'center'}}
@@ -23,6 +43,7 @@ export default class Found extends React.Component {
                    onPress = {
                      () => navigate("Group", {alloc:"3", max:"4"})
                    }>{prop[1]}</Button>
+
          );
       })}
       {/*  <Button

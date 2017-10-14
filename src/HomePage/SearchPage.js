@@ -1,23 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
-import { TabNavigator } from 'react-navigation';
+import Found from '../found/found'
+import Group from '../found/group'
+import Voucher from '../found/voucher'
+import { StackNavigator } from 'react-navigation';
 //import { SearchPage } from './search_page';
 //import { Login } from '../login/login';
 
-const util = require('util');
+const SearchNav = StackNavigator({
 
-export class SearchPage extends React.Component {
-	static navigationOptions = {
-		title: "Search Page"
-	};
-	render() {
-		var {params} = this.props.navigation.state;
-		return (
-			<View>
-				<Text> Testing Home page </Text>
-				<Text> Params: {params.name}, email = {params.email}</Text>
-			</View>
-		);
-	}
-}
+	Voucher: {
+		screen: Voucher,
+		navigationOptions:{
+			header: null,
+		}
+	},
+
+  	Found: {
+  		screen: Found,
+  		navigationOptions: {
+  			header: null,
+  		}
+  	},
+
+  	Group: {
+  		screen: Group,
+  		navigationOptions: {
+  			header: null,
+  		}
+  	},
+});
+
+export default SearchNav;

@@ -2,18 +2,17 @@ import React from 'react';
 import { Platform, StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
 
-import { TabNavigator } from 'react-navigation';
-import  {SearchPage} from './SearchPage';
+import { TabNavigator, NavigationActions } from 'react-navigation';
+import  SearchNav from './SearchPage';
 //import { Login } from '../login/login';
 import {HomeActual} from './HomeActual';
 //import { Navigation } from '../../App';
 
 const util = require('util');
 
-
 export const ScreenNavigator = TabNavigator({
 	Search: { 
-		screen: SearchPage,
+		screen: SearchNav,
 		navigationOptions: {
 			tabBarLabel: 'Search',
 			tabBarIcon: ({ tintColor}) => (
@@ -21,7 +20,7 @@ export const ScreenNavigator = TabNavigator({
 					source={require('../images/search.png')}
 					style={[styles.icon1, {tintColor: tintColor}]}
 				/>
-			)
+			),
 
 		} 
 	},

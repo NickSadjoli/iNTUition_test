@@ -26,7 +26,7 @@ export default class Login extends React.Component {
             		textStyle={{textAlign: 'center'}}
             		title={`Touch here to begin`}
             		onPress = {
-            			() => navigate("HomePage", {name: "nicholas_sadjoli", email: "nick.sadjoli@gmail.com"})
+            			() => navigate("HomePage", {})
             		}
           		/>
 			</View>

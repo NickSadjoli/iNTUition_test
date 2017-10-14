@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
+import { StackNavigator } from 'react-navigation';
+
+
+
 const util = require('util');
 
-
-export default class HomePage extends React.Component {
+export class HomeActual extends React.Component {
 	static navigationOptions = {
-		title: "Home screen"
+		header: null,
 	};
 	render() {
 		var {params} = this.props.navigation.state;

@@ -5,7 +5,15 @@ const util = require('util');
 
 
 export default class Group extends React.Component {
-	static navigationOptions = {
+  state = {
+    inputValue: "You can change me!"
+  };
+
+  _handleTextChange = inputValue => {
+    this.setState({ inputValue });
+  };
+
+  static navigationOptions = {
 		title: "hello"
 	};
 	render() {
@@ -15,6 +23,12 @@ export default class Group extends React.Component {
 				<Text> Testing Home page </Text>
 				<Text> Maximum pieces to buy: {params.max-params.alloc}</Text>
         <Text> Enter piece to buy:</Text>
+        <TextInput
+          value={this.state.inputValue}
+          onChangeText={this._handleTextChange}
+          keyboardType={'numeric'}
+          style={{ width: 200, height: 44, padding: 8 }}
+        />
         {/*<TextInput
  style={styles.textInput}
  keyboardType = 'numeric'

@@ -10,7 +10,7 @@ export default class Login extends React.Component {
 	};
 	render() {
 
-		console.log("this.props.navigation = " + util.inspect(this.props.navigation, false, null));
+		//console.log("this.props.navigation = " + util.inspect(this.props.navigation, false, null));
 		var {navigate} = this.props.navigation;
 		return (
 			<View style={styles.container}>

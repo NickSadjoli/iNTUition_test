@@ -29,7 +29,7 @@ export default class Voucher extends React.Component {
 							source={require('../images/halloween.jpg')}
 						/>
 					</TouchableHighlight>
-					<Text style={{textAlign: 'center'}}> Sentosa Family Vouchers for 4 </Text>
+					<Text style={{textAlign: 'center'}}> Halloween Family Vouchers for 4 </Text>
 				</View>
 			</ScrollView>
 		);

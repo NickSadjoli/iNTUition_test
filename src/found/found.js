@@ -4,72 +4,51 @@ import { Button } from 'react-native-elements';
 const util = require('util');
 
 export default class Found extends React.Component {
+  state = { groups: [{'persons':2}, {'persons':3}]};
 	static navigationOptions = {
 		title: "Halloween Horror Nights"
 	};
+
+
+  renderGroups(obj){
+    var {navigate} = obj.props.navigation;
+    return obj.state.groups.map(group => <Button raised textStyle={{textAlign: 'center'}} key={group.persons} 
+                                                  title = {String(group.persons) + " out of 4 persons signed in"}
+                                                  onPress = {
+                                                              () => navigate('Group', {alloc: group.persons, max: "4"})
+                                                  }> 
+                                            </Button>
+                                                );
+  }
+
 	render() {
-		//var {params} = this.props.navigation.state;
 		var payments = [];
 		var arraynum = [];
-		var {navigate} = this.props.navigation;
-		var numberPpl = [2,3];
+    var {navigate} = this.props.navigation;
+		
+    /*
 		for (let i=0;i<numberPpl.length;i++){
 			arraynum.push(
 				<View>
-					<View>
 						<Button
 							raised
-										textStyle={{textAlign: 'center'}}
-										title={<Text>{numberPpl[i]} out of 4 signed in</Text>}
-											onPress = {
-												() => navigate("Group", {alloc:numberPpl[i], max:"4"})
-											}
+							textStyle={{textAlign: 'center'}}
+							title={<Text>{String(numberPpl[i])} out of 4 signed in</Text>}
+								onPress = {
+									() => navigate("Group", {alloc:numberPpl[i], max:"4"})
+								}
 						/>
-					</View>
 				</View>
 			)
-}
-		var initialArr = [["blue","text1"],["red","text2"],["df","s"]];
+    }
+    */
+		
 		return (
 			<View>
 			<Text>Halloween Horror Nights Ticket </Text>
 			<Text> 2017</Text>
-			{arraynum}
-			 {/*{initialArr.map((prop, key) => {
-         return (
-           <Button style={{borderColor: prop[0]}}  key={key}raised
-             		textStyle={{textAlign: 'center'}}
-             		title={`3 out of 4 signed in`}
-                   onPress = {
-                     () => navigate("Group", {alloc:"3", max:"4"})
-                   }>{prop[1]}</Button>
+      {this.renderGroups(this)}
 
-         );
-      })}
-      {/*  <Button
-          onPress={() => navigate("Group", {alloc=2, max=4})}
-          title="2/4 Full"
-        />
-        <Button
-          onPress={() => navigate("Group", {alloc=3, max=4})}
-          title="3/4 Full"
-        />*/}{/*
-				<Button
-					raised
-            		textStyle={{textAlign: 'center'}}
-            		title={`3 out of 4 signed in`}
-                  onPress = {
-                    () => navigate("Group", {alloc:"3", max:"4"})
-                  }
-        />
-        <Button
-      		raised
-          			textStyle={{textAlign: 'center'}}
-            		title={`2 out of 4 signed in`}
-                  onPress = {
-                    () => navigate("Group", {alloc:"2", max:"4"})
-                  }
-        />*/}
 				<Button
       		raised
           			textStyle={{textAlign: 'center'}}
@@ -82,3 +61,4 @@ export default class Found extends React.Component {
 		);
 	}
 }
+

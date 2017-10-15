@@ -7,6 +7,7 @@ const util = require('util');
 
 
 export default class Group extends React.Component {
+
   state = {
     people:[]
   };
@@ -24,7 +25,7 @@ export default class Group extends React.Component {
     for (let i=1;i<3;i++)
     { obj = {};
       obj["person"] = String(i);
-      console.log("people:" + obj);
+      //console.log("people:" + obj);
       data.push(obj);
     }
     this.setState({people: data});
@@ -33,19 +34,18 @@ export default class Group extends React.Component {
   }
 	render() {
 		var {params} = this.props.navigation.state;
-    var arnum=[];
-  /*  for (let i=1;i<=(params.max-params.alloc);i++)
-    {
-      let a=String(i);
-      arnum.push(
-        <Picker.Item label="a" value=i.toString() />
-      )
-    }
-*/
-		return (
+    	var arnum=[];
+  		for (let i=1;i<=(params.max-params.alloc);i++)
+    	{
+      		let a=String(i);
+      		arnum.push(
+        	<Picker.Item label={a} value={a} />
+      		);
+    	}
+
+	return (
       <View>
       <Text></Text><Text></Text><Text></Text><Text></Text><Text></Text><Text></Text>
-      {this.renderPeople()}
     <CardSection>
       <Input
         label="Name"
@@ -71,6 +71,7 @@ export default class Group extends React.Component {
         selectedValue={this.props.shift}
       >
       {arnum}
+      {/*
         <Picker.Item label="Monday" value="Monday" />
         <Picker.Item label="Tuesday" value="Tuesday" />
         <Picker.Item label="Wednesday" value="Wednesday" />
@@ -78,6 +79,7 @@ export default class Group extends React.Component {
         <Picker.Item label="Friday" value="Friday" />
         <Picker.Item label="Saturday" value="Saturday" />
         <Picker.Item label="Sunday" value="Sunday" />
+      */}
       </Picker>
     </CardSection>
   {/*}</View>
